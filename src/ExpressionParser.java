@@ -1,7 +1,5 @@
 package ExpressionCalculator;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 public class ExpressionParser
 {
   public ExpressionParser(String expressionToParse)

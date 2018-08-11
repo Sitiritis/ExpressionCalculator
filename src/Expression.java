@@ -2,15 +2,7 @@ package ExpressionCalculator;
 
 public class Expression
 {
-  public Expression(int result)
-  {
-    this.result = result;
-  }
+  public Expression(){}
 
-  public int getResult()
-  {
-    return result;
-  }
-
-  protected int result;
+  public int calculate(){return 0;}
 }

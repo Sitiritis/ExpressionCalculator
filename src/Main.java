@@ -14,6 +14,7 @@ public class Main
     ExpressionParser ep = new ExpressionParser(expr);
 
     System.out.println("The result is");
-    System.out.println(ep.parse().getResult()); // 1*9+2-(55<22*6)*2+34*1==(1==(1<4+(1>0)))
+    Expression parsedExpr = ep.parse();
+    System.out.println(parsedExpr.calculate()); // (1*9+2-(55<22*6))*2+34*(1==(1==(1<4+(1>0))))
   }
 }

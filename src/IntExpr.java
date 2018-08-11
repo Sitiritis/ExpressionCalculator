@@ -2,8 +2,16 @@ package ExpressionCalculator;
 
 public class IntExpr extends Unary
 {
-  public IntExpr(int result)
+  int result;
+
+  public IntExpr(int res)
   {
-    super(result);
+    result = res;
+  }
+
+  @Override
+  public int calculate()
+  {
+    return result;
   }
 }
