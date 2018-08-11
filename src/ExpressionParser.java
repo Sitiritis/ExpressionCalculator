@@ -175,15 +175,15 @@ public class ExpressionParser
     String number = new String();
 
     while ((currentChar == '0' ||
-        currentChar == '1' ||
-        currentChar == '2' ||
-        currentChar == '3' ||
-        currentChar == '4' ||
-        currentChar == '5' ||
-        currentChar == '6' ||
-        currentChar == '7' ||
-        currentChar == '8' ||
-        currentChar == '9') &&
+            currentChar == '1' ||
+            currentChar == '2' ||
+            currentChar == '3' ||
+            currentChar == '4' ||
+            currentChar == '5' ||
+            currentChar == '6' ||
+            currentChar == '7' ||
+            currentChar == '8' ||
+            currentChar == '9') &&
         currentCharIndex < expressionLength)
     {
       number += currentChar;
@@ -200,8 +200,9 @@ public class ExpressionParser
   private void SkipClosingParenth()
   {
     char currentChar = expressionToParse.charAt(currentCharIndex);
+    int lastIndex = expressionToParse.length() - 1;
 
-    while (currentChar == ')')
+    while (currentChar == ')' && currentCharIndex < lastIndex)
     {
       currentChar = expressionToParse.charAt(++currentCharIndex);
       --currentCharNestLevel;
@@ -213,14 +214,19 @@ public class ExpressionParser
     SkipClosingParenth();
 
     String result = String.valueOf(expressionToParse.charAt(currentCharIndex++));
-    char nextChar = expressionToParse.charAt(currentCharIndex);
 
-    if (nextChar == '=')
+    if (currentCharIndex < expressionToParse.length())
     {
-      result += nextChar;
+      char nextChar = expressionToParse.charAt(currentCharIndex);
+
+      if (nextChar == '=')
+      {
+        result += nextChar;
+      }
+
+      --currentCharIndex;
     }
 
-    --currentCharIndex;
 
     return result;
   }
